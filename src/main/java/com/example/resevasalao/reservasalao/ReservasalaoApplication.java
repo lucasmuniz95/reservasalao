@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ReservasalaoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ReservasalaoApplication.class, args);
+        System.out.println("teste");
+        SpringApplication.run(ReservasalaoApplication.class, args
+        );
     }
 
 }
