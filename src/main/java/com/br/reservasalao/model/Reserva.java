@@ -1,25 +1,27 @@
 package com.br.reservasalao.model;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.io.Serializable;
 import java.util.Date;
 
-@Data
-@Builder(toBuilder = true)
-@NoArgsConstructor
-@AllArgsConstructor
+
+@Getter
+@Setter
 @Entity
-public class Reserva  implements Serializable{
+@Table(name = "tb_reserva")
+public class Reserva {
+
     @Id
     @GeneratedValue
     private long id;
     private String evento;
-    private String data;
+    private Date data;
+    private Date horaInicial;
+    private Date horaFinal;
 
 }
-
