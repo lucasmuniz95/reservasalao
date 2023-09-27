@@ -21,5 +21,4 @@ public class Reserva {
     private long id;
     private String evento;
     private String data;
-
 }
