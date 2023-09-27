@@ -1,8 +1,8 @@
 package com.br.reservasalao.service;
 
-
+import com.br.reservasalao.model.Morador;
 import com.br.reservasalao.model.Reserva;
-import com.br.reservasalao.repository.ReservaRepository;
+import com.br.reservasalao.repository.MoradorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,29 +10,30 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ReservaService {
+public class MoradorService {
+
     @Autowired
-    private ReservaRepository repository;
+    private MoradorRepository repository;
 
-    public List<Reserva> listaTodos(){
+    public List<Morador> listaTodos(){
         return repository.findAll();
     }
 
 
 
-    public Reserva create(Reserva aluno) {
-        return repository.save(aluno);
+    public Morador create(Morador morador) {
+        return repository.save(morador);
     }
 
-    public Reserva update(Reserva reserva) {
-        return repository.save(reserva);
+    public Morador update(Morador morador) {
+        return repository.save(morador);
     }
 
-    public List<Reserva> findAll() {
+    public List<Morador> findAll() {
         return repository.findAll();
     }
 
-    public Optional<Reserva> findById(Long id) {
+    public Optional<Morador> findById(Long id) {
         return repository.findById(id);
     }
 

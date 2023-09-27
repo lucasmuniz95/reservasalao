@@ -1,6 +1,8 @@
 package com.br.reservasalao.controller;
 
-import com.br.reservasalao.model.*;
+import com.br.reservasalao.model.Morador;
+import com.br.reservasalao.model.Reserva;
+import com.br.reservasalao.service.MoradorService;
 import com.br.reservasalao.service.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,37 +13,38 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/reservas")
-public class ReservaController {
+@RequestMapping("/moradores")
+public class MoradorController {
 
-    @Autowired ReservaService service;
+    @Autowired
+    MoradorService service;
 
 
-    @GetMapping("/listar-todas")
+    @GetMapping("/listar-todos")
     @ResponseStatus(HttpStatus.OK)
-    public List<Reserva> listarTodos() {
+    public List<Morador> listarTodos() {
         return service.listaTodos();
     }
 
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Reserva> create(@RequestBody Reserva reserva) {
-        Reserva reservaCreated = service.create(reserva);
-        return ResponseEntity.status(201).body(reservaCreated);
+    public ResponseEntity<Morador> create(@RequestBody Morador morador) {
+        Morador moradorCreated = service.create(morador);
+        return ResponseEntity.status(201).body(moradorCreated);
     }
 
     @PutMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Reserva> update(@RequestBody Reserva reserva) {
-        Reserva reservaCreated = service.create(reserva);
+    public ResponseEntity<Morador> update(@RequestBody Morador morador) {
+        Morador moradorCreated = service.create(morador);
 
-        return ResponseEntity.status(201).body(reservaCreated);
+        return ResponseEntity.status(201).body(moradorCreated);
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Optional<Reserva> findById(@PathVariable Long id) {
+    public Optional<Morador> findById(@PathVariable Long id) {
         return service.findById(id);
     }
 

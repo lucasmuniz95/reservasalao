@@ -1,9 +1,6 @@
 package com.br.reservasalao.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,4 +18,11 @@ public class Reserva {
     private long id;
     private String evento;
     private String data;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Morador morador;
+
+    @ManyToOne
+    private Local local;
 }

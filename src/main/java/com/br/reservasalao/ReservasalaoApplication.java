@@ -1,4 +1,4 @@
-package com.example.resevasalao.reservasalao;
+package com.br.reservasalao;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
