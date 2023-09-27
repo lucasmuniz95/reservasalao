@@ -20,8 +20,5 @@ public class Reserva {
     @GeneratedValue
     private long id;
     private String evento;
-    private Date data;
-    private Date horaInicial;
-    private Date horaFinal;
-
+    private String data;
 }
