@@ -1,15 +1,15 @@
 package com.br.reservasalao.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
-@Getter
-@Setter
+@Data
+@Builder(toBuilder = true)
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "tb_morador")
 public class Morador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +17,4 @@ public class Morador {
     private String nome;
     private String telefone;
     private String numeroAp;
-
-    @OneToMany(mappedBy = "morador")
-    private List<Reserva> reservasList;
 }
