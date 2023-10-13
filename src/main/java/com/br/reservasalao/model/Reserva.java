@@ -1,28 +1,18 @@
 package com.br.reservasalao.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-import java.util.Date;
-
-
-@Getter
-@Setter
+@Data
+@Builder(toBuilder = true)
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "tb_reserva")
 public class Reserva {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String evento;
     private String data;
-
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Morador morador;
-
-    @ManyToOne
-    private Local local;
 }

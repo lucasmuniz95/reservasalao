@@ -36,9 +36,8 @@ public class LocalController {
     @PutMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Local> update(@RequestBody Local local) {
-        Local localCreated = service.create(local);
-
-        return ResponseEntity.status(201).body(localCreated);
+        local = service.update(local);
+        return ResponseEntity.ok(local);
     }
 
     @GetMapping("/{id}")
@@ -51,5 +50,11 @@ public class LocalController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         service.delete(id);
+    }
+
+    @GetMapping("/listar-por-capacidade")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Local> findLocalByCapacidadeOrderByCapacidade(){
+        return service.findLocalByCapacidadeOrderByCapacidade();
     }
 }

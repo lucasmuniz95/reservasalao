@@ -1,5 +1,6 @@
 package com.br.reservasalao.controller;
 
+import com.br.reservasalao.model.Local;
 import com.br.reservasalao.model.Morador;
 import com.br.reservasalao.model.Reserva;
 import com.br.reservasalao.service.MoradorService;
@@ -26,12 +27,10 @@ public class MoradorController {
         return service.listaTodos();
     }
 
-
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Morador> create(@RequestBody Morador morador) {
-        Morador moradorCreated = service.create(morador);
-        return ResponseEntity.status(201).body(moradorCreated);
+        morador = service.create(morador);
+        return ResponseEntity.status(201).body(morador);
     }
 
     @PutMapping
