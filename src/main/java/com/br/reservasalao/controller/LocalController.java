@@ -1,5 +1,6 @@
 package com.br.reservasalao.controller;
 
+
 import com.br.reservasalao.model.Local;
 import com.br.reservasalao.service.LocalService;
 import org.springframework.beans.factory.annotation.Autowired;
