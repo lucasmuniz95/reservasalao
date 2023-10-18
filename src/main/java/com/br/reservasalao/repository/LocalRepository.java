@@ -12,5 +12,5 @@ import java.util.Optional;
 @Repository
 public interface LocalRepository extends JpaRepository<Local, Long> {
     @Query(nativeQuery = true, value = "SELECT * FROM Local WHERE capacidade IS NOT NULL ORDER BY capacidade")
-    List<Local> findLocalByCapacidadeOrderByCapacidade();
+    List<Local> findLocalOrderByCapacidade();
 }
