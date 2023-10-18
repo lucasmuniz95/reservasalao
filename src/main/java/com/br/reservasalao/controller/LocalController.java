@@ -34,7 +34,6 @@ public class LocalController {
     }
 
     @PutMapping
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Local> update(@RequestBody Local local) {
         local = service.update(local);
         return ResponseEntity.ok(local);
@@ -54,7 +53,7 @@ public class LocalController {
 
     @GetMapping("/listar-por-capacidade")
     @ResponseStatus(HttpStatus.OK)
-    public List<Local> findLocalByCapacidadeOrderByCapacidade(){
-        return service.findLocalByCapacidadeOrderByCapacidade();
+    public List<Local> findLocalOrderByCapacidade(){
+        return service.findLocalOrderByCapacidade();
     }
 }

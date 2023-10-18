@@ -2,16 +2,19 @@ package com.br.reservasalao.service;
 
 import com.br.reservasalao.model.Local;
 import com.br.reservasalao.repository.LocalRepository;
-
 import jakarta.ws.rs.NotFoundException;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class LocalService {
     @Autowired
     private LocalRepository repository;
@@ -27,10 +30,11 @@ public class LocalService {
     }
 
     public Local update(Local local) {
-        if (Objects.nonNull(local.getId())) {
+        Optional<Local> localCreated = repository.findById(local.getId());
+        if (localCreated.isPresent()) {
             local = repository.save(local);
         } else {
-            throw new NotFoundException();
+            throw new NotFoundException("Local não encontrado");
         }
         return local;
     }
@@ -47,7 +51,7 @@ public class LocalService {
         repository.deleteById(id);
     }
 
-    public List<Local> findLocalByCapacidadeOrderByCapacidade(){
-        return repository.findLocalByCapacidadeOrderByCapacidade();
+    public List<Local> findLocalOrderByCapacidade(){
+        return repository.findLocalOrderByCapacidade();
     }
 }
