@@ -1,9 +1,9 @@
 package com.br.reservasalao.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.br.reservasalao.dto.LocalDTO;
+import com.br.reservasalao.dto.LocalReservaDTO;
+import com.br.reservasalao.dto.MoradorDTO;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Data
@@ -18,4 +18,17 @@ public class Reserva {
     private long id;
     private String evento;
     private String data;
+
+    @ManyToOne
+    private Local local;
+
+    @ManyToOne
+    private Morador morador;
+
+
+    public Reserva(String evento, String data) {
+    }
+
+    public Reserva(String evento, String data, LocalDTO local, MoradorDTO morador) {
+    }
 }

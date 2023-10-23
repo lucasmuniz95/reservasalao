@@ -1,5 +1,6 @@
 package com.br.reservasalao.controller;
 
+import com.br.reservasalao.dto.ReservaDTO;
 import com.br.reservasalao.model.*;
 import com.br.reservasalao.service.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,16 +27,15 @@ public class ReservaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Reserva> create(@RequestBody Reserva reserva) {
-        Reserva reservaCreated = service.create(reserva);
-        return ResponseEntity.status(201).body(reservaCreated);
+    public ResponseEntity<ReservaDTO> create(@RequestBody ReservaDTO dto) {
+        Reserva reservaCreated = service.create(dto.transformaParaDTO());
+        return ResponseEntity.status(201).body(dto.transformaParaRespostaDTO(reservaCreated));
     }
 
     @PutMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Reserva> update(@RequestBody Reserva reserva) {
-        Reserva reservaCreated = service.create(reserva);
-
+        Reserva reservaCreated = service.update(reserva);
         return ResponseEntity.status(201).body(reservaCreated);
     }
 

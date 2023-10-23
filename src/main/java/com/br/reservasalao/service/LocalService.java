@@ -1,5 +1,6 @@
 package com.br.reservasalao.service;
 
+import com.br.reservasalao.dto.LocalDTO;
 import com.br.reservasalao.model.Local;
 import com.br.reservasalao.repository.LocalRepository;
 import jakarta.ws.rs.NotFoundException;
@@ -22,8 +23,6 @@ public class LocalService {
     public List<Local> listaTodos(){
         return repository.findAll();
     }
-
-
 
     public Local create(Local local) {
         return repository.save(local);

@@ -29,5 +29,4 @@ public class SecurityConfig {
                 .logout(logout -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout")))
                 .build();
     }
-
 }

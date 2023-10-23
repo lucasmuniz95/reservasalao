@@ -1,6 +1,7 @@
 package com.br.reservasalao.controller;
 
 
+import com.br.reservasalao.dto.LocalDTO;
 import com.br.reservasalao.model.Local;
 import com.br.reservasalao.service.LocalService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,17 +27,17 @@ public class LocalController {
     }
 
 
-    @PostMapping
+    @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Local> create(@RequestBody Local local) {
-        Local localCreated = service.create(local);
-        return ResponseEntity.status(201).body(localCreated);
+    public ResponseEntity<LocalDTO> create(@RequestBody LocalDTO dto) {
+        Local local = service.create(dto.transformaParaDTO());
+        return ResponseEntity.status(201).body(dto.transformaParaRespostaDTO(local));
     }
 
     @PutMapping
-    public ResponseEntity<Local> update(@RequestBody Local local) {
+    public ResponseEntity<LocalDTO> update(@RequestBody Local local) {
         local = service.update(local);
-        return ResponseEntity.ok(local);
+        return ResponseEntity.ok(local.transformaparaDTO());
     }
 
     @GetMapping("/{id}")

@@ -17,19 +17,12 @@ public class ReservaService {
     public List<Reserva> listaTodos(){
         return repository.findAll();
     }
-
-
-
     public Reserva create(Reserva aluno) {
         return repository.save(aluno);
     }
 
     public Reserva update(Reserva reserva) {
         return repository.save(reserva);
-    }
-
-    public List<Reserva> findAll() {
-        return repository.findAll();
     }
 
     public Optional<Reserva> findById(Long id) {
@@ -39,4 +32,6 @@ public class ReservaService {
     public void delete(Long id) {
         repository.deleteById(id);
     }
+
+
 }
