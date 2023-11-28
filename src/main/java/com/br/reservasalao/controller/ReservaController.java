@@ -27,9 +27,9 @@ public class ReservaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<ReservaDTO> create(@RequestBody ReservaDTO dto) {
-        Reserva reservaCreated = service.create(dto.transformaParaDTO());
-        return ResponseEntity.status(201).body(dto.transformaParaRespostaDTO(reservaCreated));
+    public ResponseEntity<Reserva> create(@RequestBody Reserva reserva) {
+        Reserva reservaCreated = service.create(reserva);
+        return ResponseEntity.status(201).body(reservaCreated);
     }
 
     @PutMapping
