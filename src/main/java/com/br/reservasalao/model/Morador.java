@@ -1,11 +1,11 @@
 package com.br.reservasalao.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.br.reservasalao.dto.LocalDTO;
+import com.br.reservasalao.dto.MoradorDTO;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 
 
 @Data
@@ -20,4 +20,14 @@ public class Morador {
     private String nome;
     private String telefone;
     private String numeroAp;
+
+    @OneToMany
+    private List<Reserva> reservas;
+
+    public Morador(String nome, String numeroAp) {
+    }
+
+    public MoradorDTO transformaparaDTO(){
+        return new MoradorDTO(this.nome, this.numeroAp);
+    }
 }

@@ -14,4 +14,5 @@ public class LocalReservaDTO {
     private String local;
     private Data reserva;
     private Boolean reservado;
+
 }

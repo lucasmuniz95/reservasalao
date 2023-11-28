@@ -1,5 +1,6 @@
 package com.br.reservasalao.controller;
 
+import com.br.reservasalao.dto.ReservaDTO;
 import com.br.reservasalao.model.*;
 import com.br.reservasalao.service.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +35,7 @@ public class ReservaController {
     @PutMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Reserva> update(@RequestBody Reserva reserva) {
-        Reserva reservaCreated = service.create(reserva);
-
+        Reserva reservaCreated = service.update(reserva);
         return ResponseEntity.status(201).body(reservaCreated);
     }
 

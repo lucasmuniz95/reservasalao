@@ -1,5 +1,6 @@
 package com.br.reservasalao.repository;
 
+import com.br.reservasalao.dto.LocalDTO;
 import com.br.reservasalao.model.Local;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

@@ -1,5 +1,6 @@
 package com.br.reservasalao.controller;
 
+import com.br.reservasalao.dto.MoradorDTO;
 import com.br.reservasalao.model.Local;
 import com.br.reservasalao.model.Morador;
 import com.br.reservasalao.model.Reserva;
@@ -28,17 +29,17 @@ public class MoradorController {
     }
 
     @PostMapping
-    public ResponseEntity<Morador> create(@RequestBody Morador morador) {
+    public ResponseEntity<MoradorDTO> create(@RequestBody Morador morador) {
         morador = service.create(morador);
-        return ResponseEntity.status(201).body(morador);
+        return ResponseEntity.status(201).body(morador.transformaparaDTO());
     }
 
     @PutMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Morador> update(@RequestBody Morador morador) {
+    public ResponseEntity<MoradorDTO> update(@RequestBody Morador morador) {
         Morador moradorCreated = service.create(morador);
 
-        return ResponseEntity.status(201).body(moradorCreated);
+        return ResponseEntity.status(201).body(moradorCreated.transformaparaDTO());
     }
 
     @GetMapping("/{id}")
